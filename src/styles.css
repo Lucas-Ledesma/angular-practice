@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+  margin: 0;
+  font-family: system-ui, Roboto, sans-serif;
+  color-scheme: light dark;
+  font-weight: 500;
+  font-size: 14px;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smooothing: grayscale;
+}

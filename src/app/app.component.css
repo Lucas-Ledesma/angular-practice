@@ -1,0 +1,17 @@
+.test {
+  display: flex;
+  gap: 20px; 
+}
+
+.test button{
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  font-size: 20px;
+}
+
+.main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
