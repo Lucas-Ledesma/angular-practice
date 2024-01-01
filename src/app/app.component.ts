@@ -1,29 +1,40 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { PadreComponent } from './padre/padre.component';
+import { ServiceService } from './service.service';
+import { FormsModule } from '@angular/forms';
+import { DirecDirective } from './direc.directive';
+import { MyPipePipe } from './my-pipe.pipe';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, PadreComponent],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    PadreComponent,
+    FormsModule,
+    DirecDirective,
+    MyPipePipe,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
-  Contador: number = 0;
+export class AppComponent implements OnInit {
+  constructor(private myService: ServiceService) {}
 
-  mensajeRecibido: string = '';
+  message: string = this.myService.getMessage();
 
-  recibirMensaje($event: string) {
-    this.mensajeRecibido = $event;
+  tempMessage: string = '';
+
+  ngOnInit(): void {
+    this.myService.setMessage('first message');
+    this.message = this.myService.getMessage();
   }
 
-  incrementar() {
-    this.Contador++;
-  }
-
-  decrementar() {
-    this.Contador--;
+  saveMessage() {
+    this.myService.setMessage(this.tempMessage);
+    this.message = this.myService.getMessage();
   }
 }

@@ -1,13 +1,8 @@
 <main class="main">
-  <h1>Contador: {{ Contador }}</h1>
-  <h3>
-    mensaje recibido: <strong>{{ mensajeRecibido }}</strong>
-  </h3>
-  <app-padre
-    (incrementarDesdeHijo)="incrementar()"
-    (decrementarDesdeHijo)="decrementar()"
-    (mensajeEnviado)="recibirMensaje($event)"
-  />
+  <h1>{{ message | myPipe }}</h1>
+  <input type="text" [(ngModel)]="tempMessage" />
+  <button type="button" (click)="saveMessage()">guardar</button>
+  <app-padre />
 </main>
 
 <router-outlet></router-outlet>

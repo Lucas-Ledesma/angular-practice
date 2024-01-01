@@ -8,22 +8,4 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './padre.component.html',
   styleUrl: './padre.component.css',
 })
-export class PadreComponent {
-  @Output() mensajeEnviado = new EventEmitter<string>();
-  @Output() incrementarDesdeHijo = new EventEmitter<void>();
-  @Output() decrementarDesdeHijo = new EventEmitter<void>();
-
-  mensaje = '';
-
-  enviarMensaje() {
-    this.mensajeEnviado.emit(this.mensaje);
-  }
-
-  incrementar() {
-    this.incrementarDesdeHijo.emit();
-  }
-
-  decrementar() {
-    this.decrementarDesdeHijo.emit();
-  }
-}
+export class PadreComponent {}
